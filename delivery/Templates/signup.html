@@ -6,10 +6,14 @@
     <title>Sign UP</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css' %}">
+    
 </head>
 <body>
-    <h3>SIGN UP below</h3>
+    
 
+
+<div class="container">
+    <h3>SIGN UP below</h3>
     <form action="{% url 'signup' %}" method="POST">
         {% csrf_token %}
         <label>Username</label>
@@ -30,6 +34,7 @@
         <button type="submit">SIGN UP</button>
 
     </form>
+</div>
 
 
 </body>

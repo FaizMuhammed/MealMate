@@ -1,8 +1,22 @@
-body {
-    background-color: aquamarine;
+
+.container {
+    background-color: white;
+    width: 400px;
+    margin: 60px auto;
+    text-align: center;
+    padding: 24px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
 }
 
-h1,a {
-    text-align: center;
-    font-style: italic;
+button, a {
+    display: inline-block;
+    margin: 8px 5px;
+    padding: 10px 16px;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    background: #2563eb;
+    color: white; 
 }
