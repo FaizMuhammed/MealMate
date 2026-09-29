@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mealmate</title>
+
     {% load static %}
     
-    <link rel="stylesheet" href="{% static 'style.css' %}">
-    <link rel="stylesheet" href="{% static 'home.css' %}">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    
 </head>
 <body>
-    
-    <h1>Mealmate &#127829; - Where you find the true tase &#9749; !</h1>
-    <br>
-
     <div class="container">
-        <a href="open_signup">Sign up</a>
+        <h1>Mealmate &#127829;</h1>
+        <p>Where you find the true taste &#9749;! Order from your favorite <br> restaurants and get delicious meals delivered to your door.</p>
         <br>
-        <br>
-        <a href="open_signin">Sign in</a>
+        <div class="actions">
+            <a class="btn btn1" href="open_signup">Get Started</a>   
+            <br>
+            <a class="btn btn2" href="open_signin">Sign in</a> 
+        </div>
     </div>
 
 </body>

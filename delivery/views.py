@@ -138,7 +138,8 @@ def update_menu(request, restaurant_id):
                 vegeterian = vegeterian,
                 picture = picture
             )
-    return render(request, 'admin_home.html')
+    itemList = restaurant.items.all()        
+    return render(request, 'update_menu.html',{"itemList" : itemList, "restaurant" : restaurant})
 
 def view_menu(request, restaurant_id, username):
     restaurant = Restaurant.objects.get(id = restaurant_id)

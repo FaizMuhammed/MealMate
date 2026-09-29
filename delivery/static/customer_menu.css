@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    background-color: rgb(247, 245, 242);
+    display: flex;
+    flex-direction: column;
+}
+
+.tbl {
+    overflow-x: auto;
+    background-color: white;
+    border-radius: 1rem;
+    border: 1px solid rgb(232, 232, 232);
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+}
+
+table thead {
+    background-color: rgb(254, 224, 229);
+}
+
+table th {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-bottom: 2px solid rgb(232, 232, 232);
+}
+
+table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid rgb(232, 232, 232);
+    vertical-align: middle;
+}
+
+table img {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 1rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.9rem;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    text-decoration: none;
+    background-color: rgb(249, 115, 22); 
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(232, 93, 42, 0.35);
+}
+
+.action-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    /* margin-bottom: 1.5rem; */
+    margin-left: 1rem;
+}
+
+.header {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.gotocart {
+    text-align: end;
+    margin-right: 3rem;
+}
+
+.cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.50rem 0.9rem;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    text-decoration: none;
+    background-color: green; 
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}

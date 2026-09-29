@@ -5,12 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout</title>
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+    {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'checkout.css' %}">
     
     
 </head>
 <body>
-    <h1>Checkout</h1>
-    <h2>Welcome, {{ username }}</h2>
+    <div class="header">
+        <h1>Checkout</h1>
+        <h2>Welcome {{ username }}</h2>
+    </div>
 
     {% if error %}
     <p style="color: red;">{{ error }}</p>
@@ -18,30 +24,28 @@
 
 
 
-
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Item</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in cart_items %}
-            <tr>
-                <td>{{ item.name }}</td>
-                <td>₹{{ item.price }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <h3>Total: ₹{{ total_price }}</h3>
-
-
-
-    
-
-    <button id="rzp-button">Pay with Razorpay</button>
+    <div class="tbl">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>₹{{ item.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="price">
+        <h3>Total: ₹{{ total_price }}</h3>
+        <button id="rzp-button">Pay with Razorpay</button>
+    </div>
     {% endif %}
 
 

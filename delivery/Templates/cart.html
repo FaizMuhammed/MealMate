@@ -4,37 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'cart.css' %}">
+
 </head>
 <body>
-    Hi {{username}} here are your items
-
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Item Image</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in itemList %}
+    <div class="header">
+        <h1>Your cart</h1>
+        Hi {{username}} here are your items
+    </div>
+    <div class="tbl">
+        <table>
+            <thead>
                 <tr>
-                    <td>
-                        <img src="{{ item.picture}}">
-                    </td>
-                    <td>{{item.name}}</td>
-                    <td>{{item.description}}</td>
-                    <td>{{item.price}}</td>
+                    <th>Item Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-        <h2>Total price : {{total_price}}</h2>
+            </thead>
+            <tbody>
+                {% for item in itemList %}
+                    <tr>
+                        <td>
+                            <img src="{{ item.picture}}">
+                        </td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.price}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 
-        <form action="{% url 'checkout' username %}">
-            <input type="submit" value="CHECK OUT">
-        </form>
-
-    </table>
+    <h2>Total price : {{total_price}}</h2>
+    <form action="{% url 'checkout' username %}">
+            <input class="btn" type="submit" value="CHECK OUT">
+    </form>
 </body>
 </html>

@@ -4,35 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer Page</title>
+
+    {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'customer_home.css' %}">
+
 </head>
 <body>
-    <h3>Welcome {{username}}!</h3>
-
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Restaurant name</th>
-                <th>Pictur</th>
-                <th>Cuisine</th>
-                <th>Rating</th>
-                <th>Operations</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for r in restaurantList %}
+    <h3>Restaurants</h3>
+    <p>Welcome {{username}}! Browse and order from top restaurants near you.</p>
+    <div class="tbl">
+        <table>
+            <thead>
                 <tr>
-                    <td>{{r.name}}</td>
-                    <td>
-                        <img src="{{r.picture}}">
-                    </td>
-                    <td>{{r.cuisine}}</td>
-                    <td>{{r.rating}}</td>
-                    <td>
-                        <a href="{% url 'view_menu' r.id username %}">View Menu</a>
-                    </td>
+                    <th>Restaurant name</th>
+                    <th>Pictur</th>
+                    <th>Cuisine</th>
+                    <th>Rating</th>
+                    <th>Operations</th>
                 </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                {% for r in restaurantList %}
+                    <tr>
+                        <td>{{r.name}}</td>
+                        <td>
+                            <img src="{{r.picture}}">
+                        </td>
+                        <td >{{r.cuisine}}</td>
+                        <td>{{r.rating}}</td>
+                        <td>
+                            <a href="{% url 'view_menu' r.id username %} ">View Menu</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
