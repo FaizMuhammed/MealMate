@@ -21,6 +21,7 @@
                     <th>Description</th>
                     <th>Price</th>
                     <th>Is veg</th>
+                    <th>Operations</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,6 +34,10 @@
                         <td>{{ item.description }}</td>
                         <td>{{ item.price }}</td>
                         <td>{{ item.vegeterian }}</td>
+                        <td>
+                            <!-- Added Delete button linking to the delete URL -->
+                            <a href="{% url 'delete_menu_item' item.id %}" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>

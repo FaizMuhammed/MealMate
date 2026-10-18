@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.http import HttpResponse
 
 from .models import Customer, Item,Restaurant, Cart
@@ -141,6 +141,18 @@ def update_menu(request, restaurant_id):
     itemList = restaurant.items.all()        
     return render(request, 'update_menu.html',{"itemList" : itemList, "restaurant" : restaurant})
 
+
+def delete_menu_item(request, item_id):
+    item = get_object_or_404(Item, id=item_id)
+    restaurant_id = item.restaurant.id
+    item.delete()
+    
+    # Redirect back to the update menu page for that restaurant
+    return redirect('open_update_menu', restaurant_id=restaurant_id)
+
+
+
+
 def view_menu(request, restaurant_id, username):
     restaurant = Restaurant.objects.get(id = restaurant_id)
     itemList = restaurant.items.all()
@@ -224,7 +236,7 @@ def orders(request, username):
     if cart:
         cart.items.clear()
 
-    return render(request, 'delivery/orders.html', {
+    return render(request, 'orders.html', {
         'username': username,
         'customer': customer,
         'cart_items': cart_items,
