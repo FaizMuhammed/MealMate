@@ -1,3 +1,12 @@
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+# Define BASE_DIR first
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Load environment variables
+load_dotenv(BASE_DIR / ".env")
 """
 Django settings for mealmate project.
 
@@ -9,18 +18,23 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
+# from dotenv import load_dotenv
+# load_dotenv(BASE_DIR / ".env")
+# import os
 
-from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+# from pathlib import Path
+
+# # Build paths inside the project like this: BASE_DIR / 'subdir'.
+# BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!m)x)@3r5ec9)!ijcd%8bbofcs#l7lbcg_ck*9ro6np+a(-&fd'
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -118,5 +132,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-RAZORPAY_KEY_ID = 'rzp_test_T9mb9I3QrgCRMn'
-RAZORPAY_KEY_SECRET = 'PjpEq7UjIg5WT2Wvmy8i20js'
+RAZORPAY_KEY_ID = os.environ.get("RAZORPAY_KEY_ID")
+RAZORPAY_KEY_SECRET = os.environ.get("RAZORPAY_KEY_SECRET")

@@ -6,6 +6,10 @@ from .models import Customer, Item,Restaurant, Cart
 import razorpay
 from django.conf import settings
 
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import check_password
+
+
 
 # Create your views here.
 def say_hello(request):
@@ -31,7 +35,7 @@ def signup(request):
         except:
             Customer.objects.create(
                 username = username,
-                password = password,
+                password = make_password(password),
                 email = email,
                 mobile = mobile,
                 address = address,
@@ -44,12 +48,15 @@ def signin(request):
         password = request.POST.get('password')
 
     try:
-        Customer.objects.get(username = username, password = password)
-        if username == 'admin':
-            return render(request, 'admin_home.html')
+        customer = Customer.objects.get(username=username)
+        if check_password(password, customer.password):
+            if username == 'admin':
+                return render(request, 'admin_home.html')
+            else:
+                restaurantList = Restaurant.objects.all()
+                return render(request, 'customer_home.html', {"restaurantList" : restaurantList, "username" : username})
         else:
-            restaurantList = Restaurant.objects.all()
-            return render(request, 'customer_home.html', {"restaurantList" : restaurantList, "username" : username})
+            return render(request, 'fail.html')
         
     except Customer.DoesNotExist:
         return render(request, 'fail.html')
