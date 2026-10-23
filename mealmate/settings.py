@@ -33,7 +33,10 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY") or os.environ.get("DJANGO_SECRET_KEY")
+
+if not SECRET_KEY:
+    raise ValueError("SECRET_KEY is missing. Set it in Render Environment.")
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
