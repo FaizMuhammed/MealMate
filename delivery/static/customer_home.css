@@ -5,7 +5,54 @@ body {
     flex-direction: column;
 }
 
-.tbl {
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+    border-bottom: 1px solid rgb(240, 237, 232);
+    background-color: rgb(240, 237, 232);
+}
+
+.navright {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.9rem;
+    font-family: inherit;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+    text-decoration: none;
+    background-color: green; 
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(115, 236, 127, 0.35);
+}
+
+.heading {
+   text-align: center;
+}
+
+
+
+
+
+/* .tbl {
     overflow-x: auto;
     background-color: white;
     border-radius: 1rem;
@@ -50,7 +97,7 @@ h3 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-a {
+.menu {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -72,4 +119,90 @@ a {
 p {
     text-align: center;
     margin-top: 0;
+} */
+
+
+
+
+
+
+
+/* Restaurant Cards Container */
+.restaurant-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    padding: 50px;
+}
+
+/* Individual Card */
+.restaurant-card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: 0.3s ease;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Restaurant Image */
+.restaurant-image img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+/* Restaurant Details */
+.restaurant-details {
+    padding: 18px;
+}
+
+.restaurant-details h3 {
+    font-size: 21px;
+    margin: 0 0 10px;
+    color: #222;
+}
+
+.cuisine {
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.rating {
+    font-size: 15px;
+    margin-bottom: 18px;
+}
+
+/* View Menu Button */
+.menu-btn {
+    display: inline-block;
+    background-color: #ff6900;
+    color: white;
+    text-decoration: none;
+    padding: 11px 22px;
+    border-radius: 9px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.menu-btn:hover {
+    background-color: #e85d00;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+    .restaurant-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .restaurant-image img {
+        height: 200px;
+    }
 }

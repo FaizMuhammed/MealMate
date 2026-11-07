@@ -8,6 +8,8 @@ from django.conf import settings
 
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.hashers import check_password
+from django.views.decorators.http import require_POST
+
 
 
 
@@ -130,7 +132,6 @@ def update_menu(request, restaurant_id):
         name = request.POST.get('name')
         description = request.POST.get('description')
         price = request.POST.get('price')
-        vegeterian = request.POST.get('vegeterian') == 'on'
         picture = request.POST.get('picture')
 
         try:
@@ -142,7 +143,6 @@ def update_menu(request, restaurant_id):
                 name = name,
                 description = description,
                 price = price,
-                vegeterian = vegeterian,
                 picture = picture
             )
     itemList = restaurant.items.all()        
@@ -186,6 +186,22 @@ def show_cart(request, username):
     total_price = cart.total_price() if cart else 0
 
     return render(request, 'cart.html',{"itemList" : items, "total_price" : total_price, "username" : username})
+
+
+@require_POST
+def remove_item(request, item_id, username):
+    customer = get_object_or_404(Customer, username=username)
+
+    cart = get_object_or_404(Cart, customer=customer)
+
+    item = get_object_or_404(Item, id=item_id)
+
+    # Remove only the selected item
+    cart.items.remove(item)
+
+    # Redirect back to cart page
+    return redirect('show_cart', username=username)
+
 
 def checkout(request, username):
     # Fetch customer and their cart
@@ -249,3 +265,7 @@ def orders(request, username):
         'cart_items': cart_items,
         'total_price': total_price,
     })
+
+
+
+

@@ -1,48 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+    {% load static %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
 
-    {% load static %}
+
     
     <link rel="stylesheet" href="{% static 'cart.css' %}">
 
 </head>
 <body>
+
+    <div class="navbar">
+        <div class="navleft">
+            <a href="{% url 'signup' %}"> <img class="logo" src="{% static 'images/logo.png' %}"></a>
+        </div>
+        <div class="navright">
+            {{username}}
+        </div>
+    </div>
+
+
     <div class="header">
         <h1>Your cart</h1>
         Hi {{username}} here are your items
     </div>
     <div class="tbl">
         <table>
-            <thead>
-                <tr>
-                    <th>Item Image</th>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
             <tbody>
                 {% for item in itemList %}
                     <tr>
                         <td>
                             <img src="{{ item.picture}}">
                         </td>
-                        <td>{{item.name}}</td>
-                        <td>{{item.description}}</td>
-                        <td>{{item.price}}</td>
+                        <td>
+                            <h3>{{item.name}}</h3>
+                            <p>{{item.description}}</p>
+                            <h5>{{item.price}}</h5>
+                        </td>
+
+                            <!-- Remove Item Button -->
+                        <td>
+                        <form method="POST"
+                              action="{% url 'remove_item' item.id username %}">
+
+                            {% csrf_token %}
+
+                            <button type="submit" class="remove-btn">
+                                Remove Item
+                            </button>
+
+                        </form>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
     </div>
 
-    <h2>Total price : {{total_price}}</h2>
-    <form action="{% url 'checkout' username %}">
-            <input class="btn" type="submit" value="CHECK OUT">
-    </form>
+    <div class="total">
+        <h2>Total price : {{total_price}}</h2>
+        <form action="{% url 'checkout' username %}">
+                <input class="btn" type="submit" value="CHECK OUT">
+        </form>
+    </div>
 </body>
 </html>

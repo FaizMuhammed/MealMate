@@ -5,13 +5,36 @@ body {
     flex-direction: column;
 }
 
+.navbar {
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+    border-bottom: 1px solid rgb(240, 237, 232);
+    background-color: rgb(240, 237, 232);
+}
+
+.navright {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+
+
 .tbl {
     overflow-x: auto;
     background-color: white;
     border-radius: 1rem;
     border: 1px solid rgb(232, 232, 232);
     font-family: Arial, Helvetica, sans-serif;
-    margin: 2rem;
+    margin: 2rem 5rem;
 }
 
 table {
@@ -20,17 +43,17 @@ table {
     font-size: 0.95rem;
 }
 
-table thead {
+/* table thead {
     background-color: rgb(254, 224, 229);
-}
+} */
 
-table th {
+/* table th {
     padding: 1rem 1.25rem;
     text-align: left;
     font-weight: 600;
     font-size: 0.85rem;
     border-bottom: 2px solid rgb(232, 232, 232);
-}
+} */
 
 table td {
     padding: 1rem 1.25rem;
@@ -64,3 +87,16 @@ h2 {
     cursor: pointer;
 }
 
+.total {
+    text-align: center;
+    margin: 2rem;
+}
+
+button {
+    background-color: rgb(249, 115, 22); 
+    border: none;
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+
+}

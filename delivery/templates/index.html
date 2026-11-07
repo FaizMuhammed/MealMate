@@ -1,19 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mealmate</title>
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
 
-    {% load static %}
+    
     
     <link rel="stylesheet" href="{% static 'index.css' %}">
     
 </head>
 <body>
     <div class="container">
-        <h1>Mealmate &#127829;</h1>
-        <p>Where you find the true taste &#9749;! Order from your favorite <br> restaurants and get delicious meals delivered to your door.</p>
+        <img src="{% static 'images/logo.png' %}">
+        
+        <h1>Mealmate - Delicious Food, <br> Delivered Fast</h1>
+        <!-- <p>Where you find the true taste &#127829; &#9749;! <br> -->
+         Order from your favorite restaurants and get delicious meals <br> delivered to your door.</p>
         <br>
         <div class="actions">
             <a class="btn btn1" href="open_signup">Get Started</a>   

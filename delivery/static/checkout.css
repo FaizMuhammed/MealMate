@@ -5,41 +5,44 @@ body {
     flex-direction: column;
 }
 
-.tbl {
-    overflow-x: auto;
+.navbar {
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 28px;
+    border-bottom: 1px solid rgb(240, 237, 232);
+    background-color: rgb(240, 237, 232);
+}
+
+.navright {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+}
+
+.checkout-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.checkout {
     background-color: white;
-    border-radius: 1rem;
-    border: 1px solid rgb(232, 232, 232);
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 4rem;
+    text-align: center;
+    width: 400px;
+    height: 200px;
+    padding: 10px;
+    border-radius: 5px;
 }
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.95rem;
-}
-
-table thead {
-    background-color: rgb(254, 224, 229);
-}
-
-table th {
-    padding: 1rem 1.25rem;
-    text-align: left;
-    font-weight: 600;
-    font-size: 0.85rem;
-    border-bottom: 2px solid rgb(232, 232, 232);
-}
-
-table td {
-    padding: 1rem 1.25rem;
-    border-bottom: 1px solid rgb(232, 232, 232);
-    vertical-align: middle;
-} 
 
 .header {
-    text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 

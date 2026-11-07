@@ -4,9 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>fail page</title>
+
+    {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'fail.css' %}">
 </head>
 <body>
-    <h1>SignIn failed</h1>
-    
+    <div class="fail">
+        <div class="fail_card">
+            <h2>SignIn failed</h2>
+            <p>Check your username and password and try again.</p>
+            <a class="btn" href="{% url 'open_signin' %}">
+                Back to Signin
+            </a>
+        </div>
+    </div>
 </body>
 </html>
